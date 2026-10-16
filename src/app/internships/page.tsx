@@ -8,11 +8,12 @@ import { InternshipFaq } from '@/components/internships/internship-faq';
 import { Button } from '@/components/ui/Button';
 import { Badge } from '@/components/ui/Badge';
 import { siteConfig } from '@/lib/site-config';
+import { APPLICATIONS_OPEN } from '@/lib/internships';
 
 export const metadata: Metadata = {
   title: 'Cybersecurity Internship Application | IqraSec Academy',
   description:
-    'Apply for the IqraSec Academy Cybersecurity Internship. Specialized domains in Web Application Penetration Testing (WAPT) and Scripting & Automation for beginners and intermediate learners.',
+    'Explore the IqraSec Academy Cybersecurity Internship, including Web Application Penetration Testing (WAPT) and Scripting & Automation domains.',
   keywords: [
     'Cybersecurity Internship',
     'WAPT Internship',
@@ -28,7 +29,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Cybersecurity Internship Application | IqraSec Academy',
     description:
-      'Apply for the IqraSec Academy Cybersecurity Internship. Specialized domains in Web Application Penetration Testing (WAPT) and Scripting & Automation.',
+      'Explore the IqraSec Academy Cybersecurity Internship, including Web Application Penetration Testing (WAPT) and Scripting & Automation domains.',
     url: `${siteConfig.url}/internships`,
     siteName: siteConfig.siteName,
     type: 'website',
@@ -37,7 +38,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Cybersecurity Internship Application | IqraSec Academy',
     description:
-      'Apply for the IqraSec Academy Cybersecurity Internship. Specialized domains in Web Application Penetration Testing (WAPT) and Scripting & Automation.',
+      'Explore the IqraSec Academy Cybersecurity Internship, including Web Application Penetration Testing (WAPT) and Scripting & Automation domains.',
   },
 };
 
@@ -58,9 +59,13 @@ export default function InternshipsOverviewPage() {
             <Badge variant="blue" className="px-3.5 py-1 text-xs uppercase tracking-widest font-bold border-blue-200 bg-blue-50">
               OFFICIAL INTERNSHIP PROGRAM
             </Badge>
-            <div className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full text-xs font-bold bg-emerald-50 text-emerald-700 border border-emerald-200 shadow-2xs">
-              <Calendar className="h-3.5 w-3.5 text-emerald-600" />
-              <span>Applications Open</span>
+            <div className={`inline-flex items-center gap-1.5 rounded-full border px-3.5 py-1 text-xs font-bold shadow-2xs ${
+              APPLICATIONS_OPEN
+                ? 'border-emerald-200 bg-emerald-50 text-emerald-700'
+                : 'border-amber-200 bg-amber-50 text-amber-800'
+            }`}>
+              <Calendar className={`h-3.5 w-3.5 ${APPLICATIONS_OPEN ? 'text-emerald-600' : 'text-amber-700'}`} />
+              <span>{APPLICATIONS_OPEN ? 'Applications Open' : 'Applications Closed'}</span>
             </div>
           </div>
 
@@ -71,28 +76,28 @@ export default function InternshipsOverviewPage() {
 
           {/* Subheading */}
           <p className="font-body text-base sm:text-lg lg:text-xl text-slate-600 max-w-3xl mx-auto leading-relaxed">
-            Apply for the IqraSec Academy Internship Program. Develop hands-on cybersecurity expertise in Web Application Penetration Testing (WAPT) and Scripting & Automation through guided virtual learning.
+            Explore the IqraSec Academy Internship Program and its guided virtual learning tracks in Web Application Penetration Testing (WAPT) and Scripting & Automation.
           </p>
 
           {/* CTAs */}
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-2">
             <Button
-              href="#application-form"
+              href="#domains"
               variant="primary"
               size="lg"
-              className="w-full sm:w-auto gap-2 shadow-lg shadow-blue-500/25 px-8"
+              className="w-full sm:w-auto gap-2 px-8"
             >
-              <span>Apply Now</span>
+              <span>Explore Internship Domains</span>
               <ArrowRight className="h-4 w-4" />
             </Button>
 
             <Button
-              href="#domains"
+              href="#application-form"
               variant="outline"
               size="lg"
               className="w-full sm:w-auto gap-2 border-slate-300 hover:border-blue-500"
             >
-              <span>View Internship Domains</span>
+              <span>Application Status</span>
             </Button>
           </div>
 
@@ -111,8 +116,8 @@ export default function InternshipsOverviewPage() {
               <span className="font-bold text-slate-900">1 Month Program</span>
             </div>
             <div className="bg-white/80 p-2.5 rounded-xl border border-slate-200/80 shadow-2xs">
-              <span className="text-slate-400 block text-[10px] uppercase">Top Performers</span>
-              <span className="font-bold text-blue-600">Stipend & Certificate</span>
+              <span className="text-slate-400 block text-[10px] uppercase">Awards</span>
+              <span className="font-bold text-blue-600">Certificate: eligible top performers; stipend: selected top performers</span>
             </div>
           </div>
         </div>
@@ -168,7 +173,7 @@ export default function InternshipsOverviewPage() {
           <div className="inline-flex justify-center">
             <Badge variant="navy" className="px-3.5 py-1 text-xs uppercase tracking-widest font-bold border-slate-700 bg-slate-800 text-cyan-400 gap-1.5">
               <ShieldCheck className="h-3.5 w-3.5 text-cyan-400" />
-              APPLICATIONS OPEN
+              {APPLICATIONS_OPEN ? 'APPLICATIONS OPEN' : 'APPLICATIONS CLOSED'}
             </Badge>
           </div>
 
@@ -177,17 +182,19 @@ export default function InternshipsOverviewPage() {
           </h2>
 
           <p className="font-body text-base sm:text-lg text-slate-300 max-w-2xl mx-auto leading-relaxed">
-            Applications are open for upcoming cybersecurity internship cohorts. Spots are limited, so fill out the application form today.
+            {APPLICATIONS_OPEN
+              ? 'Applications are open for upcoming cybersecurity internship cohorts. Spots are limited, so complete the application form today.'
+              : 'Applications for the current internship cohort are closed. Explore the available domains and check back for updates about future cohorts.'}
           </p>
 
           <div className="pt-4 flex justify-center">
             <Button
-              href="#application-form"
+              href={APPLICATIONS_OPEN ? '#application-form' : '#domains'}
               variant="primary"
               size="lg"
-              className="gap-2 bg-blue-600 hover:bg-blue-500 shadow-xl shadow-blue-600/30 px-8"
+              className="gap-2 bg-blue-600 px-8 shadow-xl shadow-blue-600/30 hover:bg-blue-500"
             >
-              <span>Apply Now</span>
+              <span>{APPLICATIONS_OPEN ? 'Apply Now' : 'Explore Internship Domains'}</span>
               <ArrowRight className="h-4 w-4" />
             </Button>
           </div>

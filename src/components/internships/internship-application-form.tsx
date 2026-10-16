@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { FileText, ExternalLink, Loader2, ShieldCheck, Info } from 'lucide-react';
 import { siteConfig } from '@/lib/site-config';
+import { APPLICATIONS_OPEN } from '@/lib/internships';
 
 interface InternshipApplicationFormProps {
   embedUrl?: string;
@@ -21,7 +22,20 @@ export const InternshipApplicationForm: React.FC<InternshipApplicationFormProps>
   return (
     <section id={id} className="py-16 sm:py-24 bg-slate-50/80 border-t border-b border-slate-200/60 relative">
       <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
-        {/* Section Header */}
+        {!APPLICATIONS_OPEN ? (
+          <div className="mx-auto max-w-3xl rounded-2xl border border-amber-200 bg-amber-50 p-8 text-center shadow-xs sm:p-10">
+            <div className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-white text-amber-700 shadow-xs">
+              <Info className="h-6 w-6" />
+            </div>
+            <h2 className="font-heading text-2xl font-bold text-slate-900 sm:text-3xl">
+              Applications Are Closed
+            </h2>
+            <p className="mx-auto mt-3 max-w-xl font-body text-sm leading-relaxed text-slate-600 sm:text-base">
+              Applications for the current internship cohort are closed. Explore the available domains and check back for updates about future cohorts.
+            </p>
+          </div>
+        ) : (
+          <>
         <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-14 space-y-3">
           <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full text-xs font-semibold uppercase tracking-wider text-blue-700 bg-blue-50 border border-blue-200/70">
             <FileText className="h-3.5 w-3.5 text-blue-600" />
@@ -117,6 +131,8 @@ export const InternshipApplicationForm: React.FC<InternshipApplicationFormProps>
             </a>
           </p>
         </div>
+          </>
+        )}
       </div>
     </section>
   );
