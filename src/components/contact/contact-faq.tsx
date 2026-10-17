@@ -43,8 +43,8 @@ const faqItems: ContactFaqItem[] = [
     id: 'faq-3',
     question: 'How can I verify a certificate?',
     answerContent: (
-      <span>
-        Enter the official Certificate ID (e.g., <code className="bg-slate-100 px-1.5 py-0.5 rounded text-blue-700 font-mono text-xs">IQS/WAPT/26C2/001</code>)  <br />
+      <span className="flex flex-col sm:flex-row gap-1.5 items-start sm:items-center">
+        Enter the official Certificate ID (e.g., <code className="bg-slate-100 px-1.5 py-0.5 rounded text-blue-700 font-mono text-xs">IQS/WAPT/26C2/001</code>)   
         <Link href={routes.verify} className="text-blue-600 font-semibold hover:underline inline-flex items-center gap-1">
           <ShieldCheck className="h-3.5 w-3.5" /> Verification Page
         </Link>.
@@ -71,10 +71,20 @@ const faqItems: ContactFaqItem[] = [
 ];
 
 export const ContactFaq: React.FC = () => {
-  const [openIndex, setOpenIndex] = useState<number | null>(0);
+  const [openItems, setOpenItems] = useState<Set<string>>(
+    () => new Set(faqItems.map((item) => item.id)),
+  );
 
-  const toggleIndex = (index: number) => {
-    setOpenIndex((prev) => (prev === index ? null : index));
+  const toggleItem = (id: string) => {
+    setOpenItems((prev) => {
+      const next = new Set(prev);
+      if (next.has(id)) {
+        next.delete(id);
+      } else {
+        next.add(id);
+      }
+      return next;
+    });
   };
 
   return (
@@ -97,8 +107,8 @@ export const ContactFaq: React.FC = () => {
 
         {/* Accordion List */}
         <div className="space-y-4">
-          {faqItems.map((item, index) => {
-            const isOpen = openIndex === index;
+          {faqItems.map((item) => {
+            const isOpen = openItems.has(item.id);
 
             return (
               <div
@@ -109,7 +119,7 @@ export const ContactFaq: React.FC = () => {
               >
                 <button
                   type="button"
-                  onClick={() => toggleIndex(index)}
+                  onClick={() => toggleItem(item.id)}
                   className="w-full text-left px-6 py-5 flex items-center justify-between gap-4 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-600"
                   aria-expanded={isOpen}
                 >
