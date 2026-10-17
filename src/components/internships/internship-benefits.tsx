@@ -41,14 +41,14 @@ export const internshipBenefitsList = [
   {
     icon: Award,
     title: 'Free Verifiable Certificate',
-    description: 'Official certificate of completion with unique QR verification for eligible top performers.',
+    description: 'Eligible top performers who complete the program receive an official certificate of completion with unique QR verification.',
     highlight: true,
     badgeText: 'Top Performers',
   },
   {
     icon: DollarSign,
     title: 'Stipend Opportunities',
-    description: 'Financial stipend rewards for selected top performing candidates based on excellence and program criteria.',
+    description: 'Stipends are awarded separately to selected top performers based on performance and program criteria.',
     highlight: true,
     badgeText: 'Selected Top Performers',
   },

@@ -6,6 +6,7 @@ import { ArrowRight, ArrowLeft, Lock, Sparkles } from 'lucide-react';
 import { Button } from '@/components/ui/Button';
 import { Badge } from '@/components/ui/Badge';
 import { routes } from '@/config/routes';
+import { APPLICATIONS_OPEN } from '@/lib/internships';
 
 interface InternshipCtaProps {
   heading: string;
@@ -20,7 +21,7 @@ export const InternshipCta: React.FC<InternshipCtaProps> = ({
   applyText,
   applicationUrl,
 }) => {
-  const isUrlAvailable = Boolean(applicationUrl && applicationUrl.trim().length > 0);
+  const isUrlAvailable = APPLICATIONS_OPEN && Boolean(applicationUrl && applicationUrl.trim().length > 0);
 
   return (
     <section className="relative py-16 sm:py-24 bg-slate-900 text-white overflow-hidden">
@@ -72,7 +73,7 @@ export const InternshipCta: React.FC<InternshipCtaProps> = ({
                 className="w-full sm:w-auto gap-2 opacity-80 cursor-not-allowed bg-slate-700 text-slate-300 border-slate-700"
               >
                 <Lock className="h-4 w-4 text-slate-400" />
-                <span>Applications Opening Soon</span>
+                <span>{APPLICATIONS_OPEN ? 'Applications Opening Soon' : 'Applications Closed'}</span>
               </Button>
             )}
 

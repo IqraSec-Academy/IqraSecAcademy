@@ -46,6 +46,7 @@ export interface InternshipDetail {
 }
 
 export const APPLICATION_FORM_URL = '/internships#application-form';
+export const APPLICATIONS_OPEN = false;
 
 export const waptDetailData: InternshipDetail = {
   slug: 'wapt',

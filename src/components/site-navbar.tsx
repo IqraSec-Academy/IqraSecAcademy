@@ -5,7 +5,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Menu, X, ShieldCheck, Shield } from 'lucide-react';
+import { Menu, X, ArrowRight, Shield } from 'lucide-react';
 import { mainNavItems, routes } from '@/config/routes';
 import { siteConfig } from '@/config/site';
 import { Button } from '@/components/ui/Button';
@@ -70,14 +70,14 @@ export const SiteNavbar: React.FC = () => {
       >
         <div className="flex items-center justify-between">
           {/* LEFT: Official Logo */}
-          <Link href={routes.home} className="flex items-center gap-3 group focus:outline-none">
-            <div className="relative h-10 flex items-center">
+          <Link href={routes.home} className="flex items-center gap-3 group focus:outline-none" aria-label="IqraSec Academy home">
+            <div className="relative flex h-12 w-12 shrink-0 items-center">
               <Image
                 src={siteConfig.logo.src}
                 alt={siteConfig.logo.alt}
                 width={siteConfig.logo.width}
                 height={siteConfig.logo.height}
-                className="object-contain h-10 w-auto"
+                className="h-12 w-12 object-contain"
                 priority
                 unoptimized
                 onError={(e) => {
@@ -92,11 +92,13 @@ export const SiteNavbar: React.FC = () => {
                 className="items-center gap-2 font-heading text-lg font-bold tracking-tight text-slate-900"
               >
                 <Shield className="h-5 w-5 text-blue-600 fill-blue-500/10" />
-                <span>
-                  <span className="text-blue-600">IQRA</span>SEC
-                </span>
+                <span className="text-blue-600">IQRA</span>SEC
               </div>
             </div>
+            <span className="flex flex-col font-heading leading-tight">
+              <span className="text-sm font-bold tracking-tight text-slate-900 sm:text-base">IqraSec</span>
+              <span className="text-[11px] font-medium tracking-wide text-slate-500 sm:text-xs">Academy</span>
+            </span>
           </Link>
 
           {/* CENTER / RIGHT: Navigation Links (Desktop) */}
@@ -132,13 +134,13 @@ export const SiteNavbar: React.FC = () => {
           {/* RIGHT: Highlighted CTA Button (Desktop) */}
           <div className="hidden md:flex items-center">
             <Button
-              href={routes.verify}
+              href={routes.internships.root}
               variant="primary"
               size="sm"
-              className="gap-1.5 shadow-xs hover:shadow-blue-500/20"
+              className="gap-1.5 whitespace-nowrap shadow-xs hover:shadow-blue-500/20"
             >
-              <ShieldCheck className="h-4 w-4" />
-              Verify Certificate
+              Explore Internships
+              <ArrowRight className="h-4 w-4" />
             </Button>
           </div>
 
@@ -197,7 +199,7 @@ export const SiteNavbar: React.FC = () => {
                           className="w-full justify-center gap-2"
                           onClick={() => setMobileMenuOpen(false)}
                         >
-                          <ShieldCheck className="h-4 w-4" />
+                          <ArrowRight className="h-4 w-4" />
                           {item.label}
                         </Button>
                       </div>

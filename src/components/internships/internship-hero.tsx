@@ -6,6 +6,7 @@ import { ShieldCheck, ArrowRight, CheckCircle2, Lock } from 'lucide-react';
 import { Button } from '@/components/ui/Button';
 import { Badge } from '@/components/ui/Badge';
 import { routes } from '@/config/routes';
+import { APPLICATIONS_OPEN } from '@/lib/internships';
 
 interface InternshipHeroProps {
   badge: string;
@@ -24,7 +25,7 @@ export const InternshipHero: React.FC<InternshipHeroProps> = ({
   applicationUrl,
   infoRow,
 }) => {
-  const isUrlAvailable = Boolean(applicationUrl && applicationUrl.trim().length > 0);
+  const isUrlAvailable = APPLICATIONS_OPEN && Boolean(applicationUrl && applicationUrl.trim().length > 0);
 
   return (
     <section className="relative overflow-hidden pt-10 pb-16 md:pt-16 md:pb-20 bg-white">
@@ -91,7 +92,7 @@ export const InternshipHero: React.FC<InternshipHeroProps> = ({
                 className="w-full sm:w-auto gap-2 opacity-80 cursor-not-allowed bg-slate-300 text-slate-700 border-slate-300"
               >
                 <Lock className="h-4 w-4 text-slate-500" />
-                <span>Applications Opening Soon</span>
+                <span>{APPLICATIONS_OPEN ? 'Applications Opening Soon' : 'Applications Closed'}</span>
               </Button>
             </div>
           )}

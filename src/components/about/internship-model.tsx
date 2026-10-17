@@ -29,7 +29,7 @@ const timelineSteps = [
   {
     step: '05',
     title: 'Build Your Learning Portfolio',
-    description: 'Earn a verifiable IqraSec Academy certificate that reflects your practical work.',
+    description: 'Eligible top performers who complete the program receive a verifiable certificate. Stipends are separate and awarded to selected top performers based on performance and program criteria.',
   },
 ];
 
