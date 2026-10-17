@@ -44,7 +44,7 @@ const faqItems: ContactFaqItem[] = [
     question: 'How can I verify a certificate?',
     answerContent: (
       <span>
-        Enter the official Certificate ID (e.g., <code className="bg-slate-100 px-1.5 py-0.5 rounded text-blue-700 font-mono text-xs">IQS/WAPT/26C2/001</code>) and the recipient&apos;s registered email address on our official{' '}
+        Enter the official Certificate ID (e.g., <code className="bg-slate-100 px-1.5 py-0.5 rounded text-blue-700 font-mono text-xs">IQS/WAPT/26C2/001</code>)  <br />
         <Link href={routes.verify} className="text-blue-600 font-semibold hover:underline inline-flex items-center gap-1">
           <ShieldCheck className="h-3.5 w-3.5" /> Verification Page
         </Link>.
