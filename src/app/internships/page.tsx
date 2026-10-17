@@ -102,7 +102,7 @@ export default function InternshipsOverviewPage() {
           </div>
 
           {/* Key Quick Facts */}
-          <div className="pt-8 grid grid-cols-2 sm:grid-cols-4 gap-3 text-xs text-slate-600 font-medium max-w-3xl mx-auto border-t border-slate-200/60">
+          <div className="pt-8  grid grid-cols-2 sm:grid-cols-4 gap-3 text-xs text-slate-600 font-medium max-w-3xl mx-auto border-t border-slate-200/60">
             <div className="bg-white/80 p-2.5 rounded-xl border border-slate-200/80 shadow-2xs">
               <span className="text-slate-400 block text-[10px] uppercase">Format</span>
               <span className="font-bold text-slate-900">Virtual / Remote</span>
@@ -115,10 +115,7 @@ export default function InternshipsOverviewPage() {
               <span className="text-slate-400 block text-[10px] uppercase">Duration</span>
               <span className="font-bold text-slate-900">1 Month Program</span>
             </div>
-            <div className="bg-white/80 p-2.5 rounded-xl border border-slate-200/80 shadow-2xs">
-              <span className="text-slate-400 block text-[10px] uppercase">Awards</span>
-              <span className="font-bold text-blue-600">Certificate: eligible top performers; stipend: selected top performers</span>
-            </div>
+             
           </div>
         </div>
       </section>

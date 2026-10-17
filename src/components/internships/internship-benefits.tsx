@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
-import { ShieldCheck, Award, Gift, DollarSign, BookOpen, Users, FolderCheck, CheckCircle2 } from 'lucide-react';
+import { ShieldCheck, Award, Gift, BookOpen, Users, FolderCheck, CheckCircle2 } from 'lucide-react';
 import { Card } from '@/components/ui/Card';
 import { Badge } from '@/components/ui/Badge';
 
@@ -45,13 +45,6 @@ export const internshipBenefitsList = [
     highlight: true,
     badgeText: 'Top Performers',
   },
-  {
-    icon: DollarSign,
-    title: 'Stipend Opportunities',
-    description: 'Stipends are awarded separately to selected top performers based on performance and program criteria.',
-    highlight: true,
-    badgeText: 'Selected Top Performers',
-  },
 ];
 
 export const InternshipBenefits: React.FC = () => {
@@ -92,11 +85,7 @@ export const InternshipBenefits: React.FC = () => {
                 >
                   <div>
                     <div className="flex items-center justify-between gap-2 mb-4">
-                      <div className={`h-11 w-11 rounded-xl flex items-center justify-center ${
-                        benefit.highlight
-                          ? 'bg-blue-600 text-white shadow-md shadow-blue-500/20'
-                          : 'bg-blue-50 text-blue-600 border border-blue-100'
-                      }`}>
+                      <div className="h-11 w-11 rounded-xl flex items-center justify-center bg-blue-50 text-blue-600 border border-blue-100">
                         <IconComponent className="h-5 w-5" />
                       </div>
                       {benefit.highlight && benefit.badgeText && (

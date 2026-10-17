@@ -116,9 +116,9 @@ export const CertificateCtaSection: React.FC = () => {
                   </div>
                 </div>
 
-                {/* Status Bar */}
+                {/* Status Bar */} 
                 <div className="flex items-center justify-between text-[11px] text-slate-500 font-medium">
-                  <span>Match: Certificate ID + Email</span>
+                  <span>Match: Certificate ID</span>
                   <span className="text-blue-600 font-semibold">Case-Insensitive</span>
                 </div>
               </motion.div>

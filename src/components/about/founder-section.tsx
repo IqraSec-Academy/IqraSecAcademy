@@ -53,7 +53,7 @@ export const FounderSection: React.FC = () => {
                   </p>
                 </div>
 
-                <p className="font-body text-base text-slate-300 leading-relaxed max-w-xl">
+                <p className="font-body text-base text-black leading-relaxed max-w-xl">
                   IqraSec Academy was created with a focus on making cybersecurity learning more structured, practical, and accessible for learners.
                 </p>
               </div>

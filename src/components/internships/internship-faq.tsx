@@ -25,7 +25,7 @@ export const internshipFaqs: FaqItem[] = [
   },
   {
     question: 'Are there opportunities for top performers?',
-    answer: 'Eligible top performers who complete the program receive a free, verifiable certificate. Stipends are separate and awarded only to selected top performers based on performance and program criteria. Premium learning resources are also available to eligible top performers.',
+    answer: 'Eligible top performers who complete the program receive a free, verifiable certificate. Premium learning resources are also available to eligible top performers.',
   },
 ];
 
